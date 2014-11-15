@@ -2,13 +2,21 @@
 <html>
 <head>
   <title>Suggestotron</title>
+
+  <!-- %= is embedded ruby syntax and creates a dynamic web app-->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<!--the equal sign after % causes that to be printed -->
+	<% flash.each do |name, msg| %>
+	<div class="<%= name %>"><%= msg %></div>
+	<% end %>
+
 
 <%= yield %>
 
 </body>
 </html>
+
