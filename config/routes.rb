@@ -1,6 +1,10 @@
 #routs tell controllers where to go
 Rails.application.routes.draw do
-  resources :topics
+  resources :topics do
+      member do
+        post 'upvote'
+      end
+    end
   #get gets info
   #patch makes updates
   #put updates entire record
@@ -9,7 +13,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'topics#index'
 
   # Example of regular route: //this is a get request
   #   get 'products/:id' => 'catalog#view'
